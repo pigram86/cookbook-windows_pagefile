@@ -1,5 +1,6 @@
 .vagrant
 Berksfile.lock
+.berksfile/*.*
 *~
 *#
 .#*
@@ -14,6 +15,7 @@ bin/*
 .bundle/*
 
 # Chef
+.chef/*.*
 .chef/*.pem
 .chef/*.rb
 .chef/encrypted_data_bag_secret
