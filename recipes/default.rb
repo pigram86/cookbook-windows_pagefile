@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: windows_pagefile
+# Cookbook Name:: pagefile
 # Recipe:: default
 #
 # Copyright (C) 2014 Todd Pigram
@@ -17,24 +17,3 @@
 # limitations under the License.
 #
 
-
-case node['total_physical_memory']
-when node['memory']['2gb']
-  include_recipe "2gb.rb"
-when node['memory']['4gb']
-  include_recipe "4gb.rb"
-when node['memory']['6gb']
-  include_recipe "6gb.rb"
-when node['memory']['8gb']
-  include_recipe "8gb.rb"
-when node['memory']['16gb']
-  include_recipe "16gb.rb"
-when node['memory']['3.99gb']
-  include_recipe "4gb.rb"
-when node['memory']['7.99gb']
-  include_recipe "8gb.rb"
-when node['memory']['15.99gb']
-  include_recipe "16gb.rb"
-when node['memory']['1gb']
-  include_recipe "1gb.rb"
-end

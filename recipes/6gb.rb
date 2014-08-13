@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: windows_pagefile
+# Cookbook Name:: pagefile
 # Recipe:: 6gb
 #
 # Copyright (C) 2014 Todd Pigram
@@ -16,11 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-one_gb = 1024 * 1024 * 1024
-one_mb = 1024 * 1024
+# Hard code pagefile follwoing MS/Citrix best practices
 windows_pagefile 'c:\pagefile.sys' do
-  initial_size (8 * one_gb)
-  maximum_size (8 * one_gb)
+  initial_size (9216)
+  maximum_size (9126)
   system_managed false
   automatic_managed false
   action :set
@@ -28,6 +27,6 @@ windows_pagefile 'c:\pagefile.sys' do
 end
 
 windows_reboot 30 do
-  reason 'needed'
+  reason 'Chef said to'
   only_if {reboot_pending?}
 end

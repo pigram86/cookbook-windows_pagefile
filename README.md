@@ -1,4 +1,4 @@
-# windows_pagefile-cookbook
+# pagefile-cookbook
 
 TODO: Enter the cookbook description here.
 

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: windows_pagefile
+# Cookbook Name:: pagefile
 # Recipe:: default
 #
 # Copyright (C) 2014 Todd Pigram
