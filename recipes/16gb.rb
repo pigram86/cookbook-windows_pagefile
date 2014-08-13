@@ -18,7 +18,7 @@
 #
 # Hard code pagefile follwoing MS/Citrix best practices
 windows_pagefile 'c:\pagefile.sys' do
-  inital_size (16385)
+  initial_size (16385)
   maximum_size (16385)
   system_managed false
   automatic_managed false

@@ -19,8 +19,8 @@
 # Hard code pagefile follwoing MS/Citrix best practices
 windows_pagefile 'C:\pagefile.sys' do
   initial_size  (8193)
-  maximum_size (8193)
- system_managed false
+  maximum_size  (8193)
+  system_managed false
   automatic_managed false
   action :set
   not_if {reboot_pending?}

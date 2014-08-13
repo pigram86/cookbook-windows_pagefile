@@ -19,7 +19,7 @@
 # Hard code pagefile follwoing MS/Citrix best practices
 windows_pagefile 'c:\pagefile.sys' do
   initial_size (9216)
-  maximum_size (9126)
+  maximum_size (9216)
   system_managed false
   automatic_managed false
   action :set
