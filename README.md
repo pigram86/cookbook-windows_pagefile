@@ -86,13 +86,13 @@ pagefile::default
 
 * Include `pagefile` in your node's `run_list`:
 
-* ```json
-* {
-*  "run_list": [
-*    "recipe[pagefile::default]"
-*   ]
-* }
-* ```
+```json
+ {
+  "run_list": [
+    "recipe[pagefile::default]"
+   ]
+ }
+ ```
 
  Contributing
 =============
