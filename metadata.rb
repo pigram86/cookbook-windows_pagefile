@@ -3,8 +3,8 @@ maintainer       'Todd Pigram'
 maintainer_email 'todd@toddpigram.com'
 license          'Apache 2.0'
 description      'Installs/Configures windows_pagefile'
-long_description 'Installs/Configures windows_pagefile'
-version          '0.2.1'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '1.0.0'
 depends          "windows"
 
 

@@ -17,3 +17,15 @@
 # limitations under the License.
 #
 
+case node['kernel']['cs_info']['total_physical_memory']
+when "2147012608"
+  include_recipe "pagefile::2gb"
+when "4294496256"
+  include_recipe "pagefile::4gb"
+when "6441979904"
+  include_recipe "pagefile::6gb"
+when "8585334784"
+  include_recipe "pagefile::8gb"
+when "17171070976"
+  include_recipe "pagefile::16gb"
+end
