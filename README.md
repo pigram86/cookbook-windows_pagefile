@@ -23,79 +23,79 @@ Usage
 
 * pagefile::default - case statement based on Total_Phyiscal_Memory
   -----------------
-    case node['kernel']['cs_info']['total_physical_memory']
-    when "2147012608"
-      include_recipe "pagefile::2gb"
-    when "4294496256"
-      include_recipe "pagefile::4gb"
-    when "6441979904"
-      include_recipe "pagefile::6gb"
-    when "8585334784"
-      include_recipe "pagefile::8gb"
-    when "17171070976"
-      include_recipe "pagefile::16gb"
-    end
+    * case node['kernel']['cs_info']['total_physical_memory']
+    * when "2147012608"
+    *  include_recipe "pagefile::2gb"
+    * when "4294496256"
+    *  include_recipe "pagefile::4gb"
+    * when "6441979904"
+    *  include_recipe "pagefile::6gb"
+    * when "8585334784"
+    *  include_recipe "pagefile::8gb"
+    * when "17171070976"
+    *  include_recipe "pagefile::16gb"
+    * end
 
 * pagefile::2gb - configures a 3072 MB Initial/Maximum, disables automatic managed, disables system managed
   -------------
-    # Hard code pagefile follwoing MS/Citrix best practices
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (3072)
-      maximum_size (3072)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
+    
+    * windows_pagefile 'c:\pagefile.sys' do
+    *  initial_size (3072)
+    *  maximum_size (3072)
+    *  system_managed false
+    *  automatic_managed false
+    *  action :set
+    *  not_if {reboot_pending?}
+    * end
 
 * pagefile::4gb - configures a 6144 MB Initial/Maximum, disables automatic managed, disables system managed 
   -------------
-    # Hard code pagefile follwoing MS/Citrix best practices
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (6144)
-      maximum_size (6144)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
+    
+    * windows_pagefile 'c:\pagefile.sys' do
+    *  initial_size (6144)
+    *  maximum_size (6144)
+    *  system_managed false
+    *  automatic_managed false
+    *  action :set
+    *  not_if {reboot_pending?}
+    * end
 
 * pagefile::6gb - configures a 9216 MB Initial/Maximum, disables automatic managed, disables system managed
   -------------
-    # Hard code pagefile follwoing MS/Citrix best practices
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (9216)
-      maximum_size (9216)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
+    
+    * windows_pagefile 'c:\pagefile.sys' do
+    *  initial_size (9216)
+    *  maximum_size (9216)
+    *  system_managed false
+    *  automatic_managed false
+    *  action :set
+    *  not_if {reboot_pending?}
+    * end
 
 * pagefile::8gb - configures a 8193 MB Initial/Maximum, disables automatic managed, disables system managed
   -------------
-    # Hard code pagefile follwoing MS/Citrix best practices
-    windows_pagefile 'C:\pagefile.sys' do
-      initial_size  (8193)
-      maximum_size  (8193)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
+    
+    * windows_pagefile 'C:\pagefile.sys' do
+    *  initial_size  (8193)
+    *  maximum_size  (8193)
+    *  system_managed false
+    *  automatic_managed false
+    *  action :set
+    *  not_if {reboot_pending?}
+    * end
 
 * pagefile::16gb - configures a 16385 MB Initial/Maximum, disables automatic managed, disables system managed 
   --------------
 
-    # Hard code pagefile follwoing MS/Citrix best practices
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (16385)
-      maximum_size (16385)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
+   
+    * windows_pagefile 'c:\pagefile.sys' do
+    *  initial_size (16385)
+    *  maximum_size (16385)
+    *  system_managed false
+    *  automatic_managed false
+    *  action :set
+    *  not_if {reboot_pending?}
+    * end
 
 ### pagefile::default
 
