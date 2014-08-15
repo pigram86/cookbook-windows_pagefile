@@ -30,9 +30,13 @@ Usage
     *  include_recipe "pagefile::4gb"
     * when "6441979904"
     *  include_recipe "pagefile::6gb"
+    * when "6437851136"
+    *  include_recipe "pagefile::6gb"
     * when "8585334784"
     *  include_recipe "pagefile::8gb"
     * when "17171070976"
+    *  include_recipe "pagefile::16gb"
+    * when "17175269376"
     *  include_recipe "pagefile::16gb"
     * end
 
@@ -97,7 +101,8 @@ Usage
     *  not_if {reboot_pending?}
     * end
 
-### pagefile::default
+pagefile::default
+-----------------
 
 Include `pagefile` in your node's `run_list`:
 
@@ -109,7 +114,8 @@ Include `pagefile` in your node's `run_list`:
 }
 ```
 
-## Contributing
+ Contributing
+=============
 
 1. Fork the repository on Github
 2. Create a named feature branch (i.e. `add-new-recipe`)
@@ -118,7 +124,8 @@ Include `pagefile` in your node's `run_list`:
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request
 
-## License and Authors
+License and Authors
+===================
 
 Author:: Todd Pigram (<todd@toddpigram.com>)
 
