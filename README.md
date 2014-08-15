@@ -104,7 +104,7 @@ Include `pagefile` in your node's `run_list`:
 ```json
 {
   "run_list": [
-    "recipe[windows_pagefile::default]"
+    "recipe[pagefile::default]"
   ]
 }
 ```
