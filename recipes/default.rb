@@ -26,7 +26,7 @@ def memory
   end
 end
 
-if memory = 2
+if memory == 2
     windows_pagefile 'c:\pagefile.sys' do
       initial_size (3072)
       maximum_size (3072)
@@ -35,7 +35,7 @@ if memory = 2
       action :set
       not_if {reboot_pending?}
     end
-elsif memory = 4
+elsif memory == 4
     windows_pagefile 'c:\pagefile.sys' do
       initial_size (6144)
       maximum_size (6144)
@@ -44,7 +44,7 @@ elsif memory = 4
       action :set
       not_if {reboot_pending?}
     end 
-elsif memory = 6
+elsif memory == 6
     windows_pagefile 'c:\pagefile.sys' do
       initial_size (9216)
       maximum_size (9216)
@@ -53,7 +53,7 @@ elsif memory = 6
       action :set
       not_if {reboot_pending?}
     end
-elsif memory = 8
+elsif memory == 8
     windows_pagefile 'C:\pagefile.sys' do
       initial_size  (8193)
       maximum_size  (8193)

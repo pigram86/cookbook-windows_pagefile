@@ -23,77 +23,76 @@ Usage
 
 * pagefile::default - case statement based on Total_Phyiscal_Memory
   -----------------
-   def memory
-  powershell_script "$ram" do
-    code <<-EOH
-    $computer = Get-WMIObject -class "Win32_ComputerSystem"
-    $ram = [math]::Round($computer.TotalPhysicalMemory/1024/1024/1024/0)
-    EOH
-  end
-end
+  * def memory
+  *   powershell_script "$ram" do
+  *     code <<-EOH
+  *      $computer = Get-WMIObject -class "Win32_ComputerSystem"
+  *      $ram = [math]::Round($computer.TotalPhysicalMemory/1024/1024/1024/0)
+  *      EOH
+  *    end
+  *  end
 
-if memory = 2
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (3072)
-      maximum_size (3072)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
-elsif memory = 4
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (6144)
-      maximum_size (6144)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end 
-elsif memory = 6
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (9216)
-      maximum_size (9216)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
-elsif memory = 8
-    windows_pagefile 'C:\pagefile.sys' do
-      initial_size  (8193)
-      maximum_size  (8193)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
-else memory = 16
-    windows_pagefile 'c:\pagefile.sys' do
-      initial_size (16385)
-      maximum_size (16385)
-      system_managed false
-      automatic_managed false
-      action :set
-      not_if {reboot_pending?}
-    end
-  Chef::Log.error("Can't determine memory and set pagefile")
-end
-
+* if memory == 2
+*    windows_pagefile 'c:\pagefile.sys' do
+*      initial_size (3072)
+*      maximum_size (3072)
+*      system_managed false
+*      automatic_managed false
+*      action :set
+*      not_if {reboot_pending?}
+*    end
+* elsif memory == 4
+*    windows_pagefile 'c:\pagefile.sys' do
+*      initial_size (6144)
+*      maximum_size (6144)
+*      system_managed false
+*      automatic_managed false
+*      action :set
+*      not_if {reboot_pending?}
+*    end 
+* elsif memory == 6
+*    windows_pagefile 'c:\pagefile.sys' do
+*      initial_size (9216)
+*      maximum_size (9216)
+*      system_managed false
+*      automatic_managed false
+*      action :set
+*      not_if {reboot_pending?}
+*    end
+* elsif memory == 8
+*    windows_pagefile 'C:\pagefile.sys' do
+*      initial_size  (8193)
+*      maximum_size  (8193)
+*      system_managed false
+*      automatic_managed false
+*      action :set
+*      not_if {reboot_pending?}
+*    end
+* else memory = 16
+*    windows_pagefile 'c:\pagefile.sys' do
+*      initial_size (16385)
+*      maximum_size (16385)
+*      system_managed false
+*      automatic_managed false
+*      action :set
+*      not_if {reboot_pending?}
+*    end
+*  Chef::Log.error("Can't determine memory and set pagefile")
+* end
 
 
 pagefile::default
 -----------------
 
-Include `pagefile` in your node's `run_list`:
+* Include `pagefile` in your node's `run_list`:
 
-```json
-{
-  "run_list": [
-    "recipe[pagefile::default]"
-  ]
-}
-```
+* ```json
+* {
+*  "run_list": [
+*    "recipe[pagefile::default]"
+*   ]
+* }
+* ```
 
  Contributing
 =============
