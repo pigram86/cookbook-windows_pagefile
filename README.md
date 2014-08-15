@@ -13,6 +13,11 @@ Supported Platforms
 * Windows 7
 * Windows 8.1
 
+Cookbooks
+=========
+
+* windows
+
 Usage
 =====
 
