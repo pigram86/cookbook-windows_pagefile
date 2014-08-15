@@ -2,7 +2,7 @@ Description
 ===========
 
 This cookbook sets static pagefiles on Windows systems. Following Microsoft and Citrix best practices, any server below 8GB of physical ram
-will have a pagefile that 1.5 times physical ram. Anything over 8GB will be ram + one mb. These recipes set both the initail & maximum size
+will have a pagefile that 1.5 times physical ram. Anything over 8GB will be ram + one mb. These recipes set both the initial/maximum size
 
 Supported Platforms
 ===================
