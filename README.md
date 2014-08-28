@@ -23,62 +23,116 @@ Usage
 
 * pagefile::default - case statement based on Total_Phyiscal_Memory
   -----------------
-  * def memory
-  *   powershell_script "$ram" do
-  *     code <<-EOH
-  *      $computer = Get-WMIObject -class "Win32_ComputerSystem"
-  *      $ram = [math]::Round($computer.TotalPhysicalMemory/1024/1024/1024/0)
-  *      EOH
-  *    end
-  *  end
-
-* if memory == 2
-*    windows_pagefile 'c:\pagefile.sys' do
-*      initial_size (3072)
-*      maximum_size (3072)
-*      system_managed false
-*      automatic_managed false
-*      action :set
-*      not_if {reboot_pending?}
-*    end
-* elsif memory == 4
-*    windows_pagefile 'c:\pagefile.sys' do
-*      initial_size (6144)
-*      maximum_size (6144)
-*      system_managed false
-*      automatic_managed false
-*      action :set
-*      not_if {reboot_pending?}
-*    end 
-* elsif memory == 6
-*    windows_pagefile 'c:\pagefile.sys' do
-*      initial_size (9216)
-*      maximum_size (9216)
-*      system_managed false
-*      automatic_managed false
-*      action :set
-*      not_if {reboot_pending?}
-*    end
-* elsif memory == 8
-*    windows_pagefile 'C:\pagefile.sys' do
-*      initial_size  (8193)
-*      maximum_size  (8193)
-*      system_managed false
-*      automatic_managed false
-*      action :set
-*      not_if {reboot_pending?}
-*    end
-* else memory = 16
-*    windows_pagefile 'c:\pagefile.sys' do
-*      initial_size (16385)
-*      maximum_size (16385)
-*      system_managed false
-*      automatic_managed false
-*      action :set
-*      not_if {reboot_pending?}
-*    end
-*  Chef::Log.error("Can't determine memory and set pagefile")
+* def memory
+*  "#{node['kernel']['cs_info']['total_physical_memory']}"
 * end
+
+* case memory
+* when "2147012608"
+*   include_recipe "pagefile::2gb"
+* when "4294496256"
+*   include_recipe "pagefile::4gb"
+* when "4290367488"
+*   include_recipe "pagefile::4gb"
+* when "6433652736"
+*   include_recipe "pagefile::6gb"
+* when "6441979904"
+*   include_recipe "pagefile::6gb"
+* when "8585334784"
+*   include_recipe "pagefile::8gb"
+* when "8589463552"
+*   include_recipe "pagefile::8gb"
+* when "17175269376"
+*   include_recipe "pagefile::16gb"
+* when "17171070976"
+*   include_recipe "pagefile::16gb"
+* end
+
+* pagefile::2gb
+ --------------
+* # Set pagefile
+* windows_pagefile 'c:\pagefile.sys' do
+*   initial_size (3072)
+*   maximum_size (3072)
+*   system_managed false
+*   automatic_managed false
+*   action :set
+*   not_if {reboot_pending?}
+* end
+
+* # if reboot needed
+* windows_reboot 30 do
+*   reason 'Chef said reboot'
+*   only_if {reboot_pending?}
+* end
+
+ * pagefile::4gb
+ --------------
+ * # Set pagefile
+* windows_pagefile 'c:\pagefile.sys' do
+*   initial_size (6144)
+*   maximum_size (6144)
+*   system_managed false
+*   automatic_managed false
+*   action :set
+*   not_if {reboot_pending?}
+* end
+
+* # if reboot needed
+* windows_reboot 30 do
+*   reason 'Chef said reboot'
+*   only_if {reboot_pending?}
+
+ * pagefile::6gb
+ --------------
+ * # Set pagefile
+* windows_pagefile 'c:\pagefile.sys' do
+*   initial_size (9216)
+*   maximum_size (9216)
+*   system_managed false
+*   automatic_managed false
+*   action :set
+*   not_if {reboot_pending?}
+* end
+
+* # if reboot needed
+* windows_reboot 30 do
+*   reason 'Chef said reboot'
+*   only_if {reboot_pending?}
+
+ * pagefile::8gb
+ --------------
+ * # Set pagefile
+* windows_pagefile 'c:\pagefile.sys' do
+*   initial_size (8193)
+*   maximum_size (8193)
+*   system_managed false
+*   automatic_managed false
+*   action :set
+*   not_if {reboot_pending?}
+* end
+
+* # if reboot needed
+* windows_reboot 30 do
+*   reason 'Chef said reboot'
+*   only_if {reboot_pending?}
+
+ * pagefile::16gb
+ --------------
+ * # Set pagefile
+* windows_pagefile 'c:\pagefile.sys' do
+*   initial_size (16385)
+*   maximum_size (16385)
+*   system_managed false
+*   automatic_managed false
+*   action :set
+*   not_if {reboot_pending?}
+* end
+
+* # if reboot needed
+* windows_reboot 30 do
+*   reason 'Chef said reboot'
+*   only_if {reboot_pending?}
 
 
 pagefile::default

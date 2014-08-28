@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: pagefile
-# Recipe:: default
+# Recipe:: 2gb
 #
 # Copyright (C) 2014 Todd Pigram
 #
@@ -16,29 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-def memory
-  "#{node['kernel']['cs_info']['total_physical_memory']}"
+# Set pagefile
+windows_pagefile 'c:\pagefile.sys' do
+  initial_size (3072)
+  maximum_size (3072)
+  system_managed false
+  automatic_managed false
+  action :set
+  not_if {reboot_pending?}
 end
 
-
-case memory
-when "2147012608"
-  include_recipe "pagefile::2gb"
-when "4294496256"
-  include_recipe "pagefile::4gb"
-when "4290367488"
-  include_recipe "pagefile::4gb"
-when "6433652736"
-  include_recipe "pagefile::6gb"
-when "6441979904"
-  include_recipe "pagefile::6gb"
-when "8585334784"
-  include_recipe "pagefile::8gb"
-when "8589463552"
-  include_recipe "pagefile::8gb"
-when "17175269376"
-  include_recipe "pagefile::16gb"
-when "17171070976"
-  include_recipe "pagefile::16gb"
+# if reboot needed
+windows_reboot 30 do
+  reason 'Chef said reboot'
+  only_if {reboot_pending?}
 end
