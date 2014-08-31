@@ -1,9 +1,9 @@
-# 0.1.0
+# 1.4.0
 
-Initial release of windows_pagefile
+Pagefile
 
 * Enhancements
-  * an enhancement
+  * Added in the respective memory of both XenServer and vSphere/vCloud for 4gb, 6gb, 8gb, & 16gb. Also split them for w2012/w2012r2 and w2k8r2
 
 * Bug Fixes
   * a bug fix
