@@ -10,3 +10,8 @@ Pagefile
 *Bug Fixes
  * Fixed typo
 
+ # 1.5.1
+
+ * Enhancement
+   * added in another when "" as CloudPlatform is seeing 8GB as 7.99GB on Windows Server 2012/2012r2
+
