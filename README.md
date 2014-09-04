@@ -34,6 +34,8 @@ Usage
 *     include_recipe "pagefile::6gb" 
 *   when "8581136384" 
 *     include_recipe "pagefile::8gb"
+*   when "8581140480"
+*     include_recipe "pagefile::8gb"
 *   when "17171070976" 
 *     include_recipe "pagefile::16gb"
 *   when "4294496256"
